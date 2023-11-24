@@ -10,8 +10,8 @@
  * @see https://webdriver.io/docs/frameworks/#using-mocha
  * @param fn
  */
-export function wrap(fn) {
-  return new Promise((resolve) => fn(resolve));
+export function wrap(fn: (done: () => void) => void) {
+  return new Promise<void>((resolve) => fn(resolve));
 }
 
 export function success(done, socket) {
